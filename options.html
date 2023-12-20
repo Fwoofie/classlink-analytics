@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        padding: 20px;
+      }
+      body > div {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        width: 480px;
+      }
+      div.ctnr.hidden-ctnr {
+        height: 0;
+        max-height: 0;
+      }
+      span.question, span.answer {
+        font-size: 20px;
+      }
+      span.answer {
+        font-weight: bold;
+      }
+      div.border-top {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #888;
+      }
+      span.active.login-status {
+        color: #0a4d7f;   /* ClassLink primary blue */
+      }
+      span.active.load-status {
+        color: #12a53a;   /* CLSheet --color-secondary */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ctnr">
+      <span class="question">Logged in? </span>
+      <span class="answer login-status" id="clLoginStatus"></span>
+    </div>
+    <div class="ctnr incog-ctnr hidden-ctnr">
+      <span class="question">Logged in (incognito)? </span>
+      <span class="answer login-status" id="clLoginIncognitoStatus"></span>
+    </div>
+    <div class="ctnr beta-ctnr hidden-ctnr">
+      <span class="question">Logged in (beta)? </span>
+      <span class="answer login-status" id="clLoginBetaStatus"></span>
+    </div>
+    <div class="ctnr incog-ctnr beta-ctnr hidden-ctnr">
+      <span class="question">Logged in (beta, incognito)? </span>
+      <span class="answer login-status" id="clLoginIncognitoBetaStatus"></span>
+    </div>
+    <div class="border-top">
+      <span class="question">Config loaded? </span>
+      <span class="answer load-status" id="cfgLoadStatus"></span>
+    </div>
+    <!--<div id="buttonDiv"></div>-->
+  </body>
+  <script src="options.js"></script>
+</html>

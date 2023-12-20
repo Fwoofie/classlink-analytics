@@ -1,0 +1,94 @@
+{
+  "type": "object",
+
+  "properties": {
+
+    "anon_token": {
+      "title": "Anonymous tenant token",
+      "description": "The token used to identify this tenant for anonymous tracking.",
+      "type": "string"
+    },
+
+    "enableFullLogging": {
+      "title": "Enable domain logging",
+      "description": "If set to true, then domain-based logging will be enabled. If false, only app-based logging is enabled. Several other config options that deal with domain tracking require this to be true, and in turn, this requires an anon_token to be set up. Defaults to false.",
+      "type": "boolean"
+    },
+
+    "trackIncognito": {
+      "title": "Track incognito windows",
+      "description": "If set to true, then Incognito tabs will be included in the logging. If false, they are ignored. Defaults to false.",
+      "type": "boolean"
+    },
+
+    "idleSessionTimeoutMinutes": {
+      "title": "Idle session timeout",
+      "description": "Time, in minutes, of inactivity on a tab before an app/domain session times out and no longer records time tracking data. Activity (e.g. mouse movement) on the page will create a new session and resume tracking activity. Must be between 1 and 30. Defaults to 15.",
+      "type": "number"
+    },
+
+    "idleUserTimeoutMinutes": {
+      "title": "Idle user timeout",
+      "description": "Time, in minutes, of user inactivity (i.e. the browser isn't focused) before a user is considered inactive and time tracking pauses. Defaults to 15.",
+      "type": "number"
+    },
+
+    "allowIPFetch": {
+      "title": "Include IP address",
+      "description": "If true, the user's IP will be fetched and included with anonymous domain sessions (i.e. when not logged into ClassLink). Defaults to false.",
+      "type": "boolean"
+    },
+
+    "allowedIPs": {
+      "title": "Allowed IP addresses",
+      "description": "Specifies IP addresses that are allowed to send domain time info. Users whose IP address is not included will not have their domain time tracked.  Requires allowIPFetch to be enabled. Providing an empty array, or not providing this value at all, is equivalent to allowing all IP addresses to send domain info. IP addresses can be a mix of individual addresses and/or ranges of IP addresses in string format, e.g. [\"192.168.1.152\", \"195.32.51.39\", \"19.84.0.0-22.0.4.51\"]",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+
+    "excludedIPs": {
+      "title": "Allowed IP addresses",
+      "description": "Specifies IP addresses that are not allowed to send domain time info. Requires allowIPFetch to be enabled. Takes priority over allowedIPs in case of overlap. Same format as allowedIPs.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+
+    "ipRefetchIntervalMinutes": {
+      "title": "IP Refetch interval",
+      "description": "If allowIPFetch is enabled, the extension will fetch the user's IP at startup, and then periodically check again in case it updates. This determines the interval, in minutes, between fetches. Must be a positive integer. Defaults to 120 (two hours).",
+      "type": "number"
+    },
+
+    "missingIPPlaceholder": {
+      "title": "Missing IP placeholder",
+      "description": "If allowIPFetch is disabled, or it's enabled but the extension is unable to fetch the user's IP, this string will be used instead. Defaults to \"0.0.0.0\"",
+      "type": "string"
+    },
+
+    "urlMatchesToIgnore": {
+      "title": "Ignored domains",
+      "description": "Specifies domains that should not be time-tracked. For example, [\"classlink.com\", \"\"], The extension purely looks for inclusive matches, so specifying \"abc.com\" will ignore not just \"abc.com/subpage\" but also \"thing.abc.com\" and \"123abc.com\", for example. Also note that \"chrome://\", \"chrome-extension://\", and \"localhost:\" are always ignored by the extension.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+
+    "maintainPreviousCLLogin": {
+      "title": "Maintain previous ClassLink login",
+      "description": "If true, the user's IP will be fetched and included with anonymous domain sessions (i.e. when not logged into ClassLink). Defaults to true.",
+      "type": "boolean"
+    },
+
+    "logLevel": {
+      "title": "Logging level",
+      "description": "Controls frequency of diagnostic/debug log statements sent to the extension's background page. 0 = no logs, 1 = important/main logs, 2 = most actions are logged. Defaults to 0.",
+      "type": "number"
+    }
+  }
+
+}

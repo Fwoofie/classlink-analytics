@@ -1,0 +1,42 @@
+{
+   "background": {
+      "persistent": false,
+      "scripts": [ "cl-utils.js", "cl-analytics-api.js", "configuration-service.js", "ip-checker.js", "incompatibility-checker.js", "time-record.js", "session-manager.js", "idle-monitor.js", "navigation-monitor.js", "background.js" ]
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "injected.js" ],
+      "matches": [ "\u003Call_urls>" ]
+   } ],
+   "description": "Collects usage data from school-managed devices or accounts for district administrative analytics.",
+   "devtools_page": "index.html",
+   "icons": {
+      "100": "images/100x100.png",
+      "128": "images/128x128.png",
+      "16": "images/16x16.png",
+      "48": "images/48x48.png",
+      "64": "images/64x64.png",
+      "75": "images/75x75.png"
+   },
+   "key": "",
+   "manifest_version": 2,
+   "name": "ClassLink Analytics+",
+   "options_page": "options.html",
+   "page_action": {
+      "default_icon": {
+         "100": "images/100x100.png",
+         "128": "images/128x128.png",
+         "16": "images/16x16.png",
+         "48": "images/48x48.png",
+         "64": "images/64x64.png",
+         "75": "images/75x75.png"
+      }
+   },
+   "permissions": [ "alarms", "idle", "storage", "tabs", "webNavigation", "https://*.classlink.com/*", "http://*.classlink.com/*", "https://api.ipify.org/", "https://analytics-log-beta.classlink.io/*", "https://betalaunchpad.classlink.com/*", "http://*/*", "https://*/*", "\u003Call_urls>" ],
+   "storage": {
+      "managed_schema": "schema.json"
+   },
+   "update_URL": "https://edge.microsoft.com/extensionwebstorebase/v1/crx",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.5.04"
+}
